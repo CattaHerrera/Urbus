@@ -161,8 +161,8 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
         imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lógica para manejar el clic del botón de regreso aquí
-                // Puedes regresar al fragmento anterior o realizar cualquier otra acción necesaria
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

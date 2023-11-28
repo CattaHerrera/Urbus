@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FBEAB3"
+        android:background="#F8E1D4"
         android:padding="5dp">
 
         <TextView
@@ -25,8 +25,15 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <View
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/imgFavorito"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="330dp"
+            android:src="@drawable/icon_fav" />
 
+        <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_below="@+id/txtNombre"
