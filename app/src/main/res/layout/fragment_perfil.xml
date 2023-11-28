@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#585555">
+
+    <!-- Mensaje de bienvenida -->
+    <TextView
+        android:id="@+id/txtBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="¡Bienvenido a Urbus!"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imgPerfil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/icon_perfil"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtBienvenida"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop" />
+
+    <!-- Icono para cambiar la foto -->
+    <ImageView
+        android:id="@+id/iconoCambiarFoto"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/icon_lapiz"
+        android:layout_below="@+id/imgPerfil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Nombre del usuario -->
+    <TextView
+        android:id="@+id/textNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iconoCambiarFoto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Nombre"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+
+    <!-- Email del usuario -->
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textNombre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Correo electrónico"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
+
+    <!-- Botón de cerrar sesión -->
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Cerrar Sesión"
+        android:textColor="#FFFFFF" />
+
+    <!-- Mensaje para usuarios no registrados -->
+    <TextView
+        android:id="@+id/textMensajeNoRegistrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgPerfil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Si desea guardar su información sobre las rutas, por favor, inicie sesión."
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <!-- Botón de iniciar sesión para usuarios no registrados -->
+    <Button
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+
+        android:layout_below="@id/textMensajeNoRegistrado"
+        android:layout_centerHorizontal="true"
+        android:text="Iniciar Sesión"
+
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

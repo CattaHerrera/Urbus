@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/page_inicio"
+        android:icon="@drawable/icon_inicio"
+        android:title="Inicio"/>
+
+
+    <item
+        android:id="@+id/page_mapa"
+        android:icon="@drawable/icon_mapa"
+        android:title="Mapa"/>
+
+    <item
+        android:id="@+id/page_horario"
+        android:icon="@drawable/icon_calendario"
+        android:title="Horarios"/>
+
+    <item
+        android:id="@+id/page_perfil"
+        android:icon="@drawable/icon_usuario"
+        android:title="Perfil"/>
+</menu>

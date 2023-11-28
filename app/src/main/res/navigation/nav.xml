@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/page_inicio"
+    android:id="@+id/nav">
+
+    <fragment
+    android:id="@+id/page_inicio"
+    android:name="com.example.urbus_firebase.InicioFragment"
+    tools:layout="@layout/fragment_inicio"/>
+
+    <fragment
+        android:id="@+id/page_mapa"
+        android:name="com.example.urbus_firebase.MapaFragment"
+        tools:layout="@layout/fragment_mapa"/>
+
+    <fragment
+        android:id="@+id/page_horario"
+        android:name="com.example.urbus_firebase.HorarioFragment"
+        tools:layout="@layout/fragment_horario"/>
+
+    <fragment
+        android:id="@+id/page_perfil"
+        android:name="com.example.urbus_firebase.PerfilFragment"
+        tools:layout="@layout/fragment_perfil"/>
+</navigation>

@@ -1,0 +1,59 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FF9800"
+    android:padding="16dp">
+
+    <!-- Título de la base de combis -->
+    <TextView
+        android:text="BASE DE COMBIS"
+        android:id="@+id/txNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+
+    <!-- Otras propiedades de la base de combis (clave, frecuencia, horario, unidades, destinos) -->
+    <TextView
+        android:text="clave"
+        android:id="@+id/txClave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Frecuencia"
+        android:id="@+id/txFrecuencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Horario"
+        android:id="@+id/txHorario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Unidades"
+        android:id="@+id/txUnidades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Destinos"
+        android:id="@+id/txDestino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+</LinearLayout>

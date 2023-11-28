@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EADFDF"
+    tools:context=".RegistrarseActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textRegistro_head"
+            android:layout_marginTop="30dp"
+            android:text="Escribe tus credenciales para iniciar sesión"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_email"
+            android:layout_below="@+id/textRegistro_head"
+            android:text="Correo electrónico:"
+            android:textColor="#555555"
+            android:textSize="17dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editLoginEmail"
+            android:hint="peñanieto@gmail.com"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp"
+            android:padding="6sp"
+            android:layout_below="@+id/text_email"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_password"
+            android:layout_below="@+id/text_email"
+            android:text="Contraseña:"
+            android:textColor="#555555"
+            android:textSize="17dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editLoginPassword"
+            android:inputType="textPassword"
+            android:textSize="16sp"
+            android:padding="6sp"
+            android:layout_below="@+id/text_password"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/txtRegistrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editLoginPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:onClick="abreRegistrarse"
+            android:text="¿No tienes cuenta? Regístrate"
+            android:textColor="#4CA7AF" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editLoginPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:text="INICIAR SESIÓN" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="10dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</ScrollView>

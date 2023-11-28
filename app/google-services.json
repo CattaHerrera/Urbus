@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "377604247915",
+    "firebase_url": "https://prueba-1-2bf34-default-rtdb.firebaseio.com",
+    "project_id": "prueba-1-2bf34",
+    "storage_bucket": "prueba-1-2bf34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377604247915:android:75183a2dccc06d8e907c2e",
+        "android_client_info": {
+          "package_name": "com.example.urbus_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBoMpNq-8UDE511NIfTIytv7zI4Pg5C5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    android:elevation="4dp"
+    app:cardUseCompatPadding="true"
+    android:layout_margin="4dp">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#E6E2DF"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/txtNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/expletus_sans"
+            android:padding="8dp"
+            android:text="rutas"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@+id/txtNombre"
+            android:background="#000000" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtNombre"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="15dp"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_width="2dp" />
+
+        <ImageView
+            android:id="@+id/lineaVertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/txtNombre"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_lineavertical"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/txtOrigen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtNombre"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/img1"
+            android:fontFamily="@font/expletus_sans"
+            android:text="origen"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/txtDestino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/img1"
+            android:layout_below="@+id/txtOrigen"
+            android:layout_marginStart="35dp"
+
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/expletus_sans"
+            android:text="destino"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtCosto"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtNombre"
+            android:layout_marginStart="310dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/expletus_sans"
+            android:background="@drawable/contorno_cuadrado"
+            android:text="costo"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textStyle="bold|italic" />
+
+
+
+        <LinearLayout
+            android:id="@+id/ly"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/img1"
+            android:layout_marginTop="20dp"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/icon_reloj" />
+
+            <TextView
+                android:id="@+id/txtTiempo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:textSize="10dp"
+                android:fontFamily="@font/expletus_sans"
+                android:text="tiempo" />
+
+            <ImageView
+                android:id="@+id/imageViewParadas"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/icon_parada" />
+
+            <TextView
+                android:id="@+id/txtParada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/expletus_sans"
+                android:layout_marginTop="4dp"
+                android:textSize="10dp"
+                android:text="parada" />
+
+
+            <ImageView
+                android:id="@+id/imageViewTiempo"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/icon_distancia" />
+
+            <TextView
+                android:id="@+id/txtDistancia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/expletus_sans"
+                android:layout_marginTop="4dp"
+                android:textSize="10dp"
+                android:text="distancia" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnVerMapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp"
+            android:layout_below="@+id/txtCosto"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#F44336"
+            android:fontFamily="@font/expletus_sans"
+            android:onClick="verMapa"
+            android:text="Ver Mapa" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
