@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#8D6E63">
+    android:background="#FF5722">
 
     <!-- Título -->
     <TextView

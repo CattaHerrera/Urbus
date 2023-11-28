@@ -3,6 +3,7 @@ package com.example.urbus_firebase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,10 +17,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.myViewHolder> {
 
+    private OnVerMapaClickListener onVerMapaClickListener;
 
-    public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options) {
+    public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options, OnVerMapaClickListener onVerMapaClickListener) {
         super(options);
-
+        this.onVerMapaClickListener = onVerMapaClickListener;
     }
 
     @Override
@@ -40,32 +42,46 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
                 .error(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.img);
 
-
+        holder.btnVerMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onVerMapaClickListener != null) {
+                    onVerMapaClickListener.onVerMapaClick(model);
+                }
+            }
+        });
     }
 
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item,parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
         return new myViewHolder(view);
     }
 
-    class myViewHolder extends RecyclerView.ViewHolder{
+    class myViewHolder extends RecyclerView.ViewHolder {
         CircleImageView img;
         TextView nombre, origen, destino, costo, tiempo, parada, distancia;
+        Button btnVerMapa;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            img = (CircleImageView) itemView.findViewById(R.id.img1);
-            nombre = (TextView) itemView.findViewById(R.id.txtNombre);
-            origen = (TextView) itemView.findViewById(R.id.txtOrigen);
-            destino = (TextView) itemView.findViewById(R.id.txtDestino);
-            costo = (TextView) itemView.findViewById(R.id.txtCosto);
-            tiempo = (TextView) itemView.findViewById(R.id.txtTiempo);
-            parada = (TextView) itemView.findViewById(R.id.txtParada);
-            distancia = (TextView) itemView.findViewById(R.id.txtDistancia);
+            img = itemView.findViewById(R.id.img1);
+            nombre = itemView.findViewById(R.id.txtNombre);
+            origen = itemView.findViewById(R.id.txtOrigen);
+            destino = itemView.findViewById(R.id.txtDestino);
+            costo = itemView.findViewById(R.id.txtCosto);
+            tiempo = itemView.findViewById(R.id.txtTiempo);
+            parada = itemView.findViewById(R.id.txtParada);
+            distancia = itemView.findViewById(R.id.txtDistancia);
+
+            btnVerMapa = itemView.findViewById(R.id.btnVerMapa);
         }
     }
 
+    // Mueve la interfaz aquí
+    public interface OnVerMapaClickListener {
+        void onVerMapaClick(MainModel mainModel);
+    }
 }

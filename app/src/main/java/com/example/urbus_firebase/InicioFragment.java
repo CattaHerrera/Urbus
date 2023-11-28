@@ -3,6 +3,8 @@ package com.example.urbus_firebase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
@@ -15,7 +17,7 @@ import android.widget.Button;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class InicioFragment extends Fragment {
+public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaClickListener {
 
     private RecyclerView recyclerView;
     private MainAdapter mainAdapter;
@@ -42,7 +44,7 @@ public class InicioFragment extends Fragment {
 
         recyclerView = rootView.findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        Button btnMapa = rootView.findViewById(R.id.btnVerMapa);
+
         searchView = rootView.findViewById(R.id.searchV);
 
         // Configurar las opciones de FirebaseRecyclerAdapter con todas las rutas
@@ -52,7 +54,7 @@ public class InicioFragment extends Fragment {
                         .build();
 
         // Inicializar el adaptador
-        mainAdapter = new MainAdapter(options);
+        mainAdapter = new MainAdapter(options, this);
         recyclerView.setAdapter(mainAdapter);
 
         return rootView;
@@ -94,8 +96,44 @@ public class InicioFragment extends Fragment {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Rutas").orderByChild("destino").startAt(str).endAt(str + "\uf8ff"), MainModel.class)
                         .build();
 
-        mainAdapter = new MainAdapter(options);
+        mainAdapter = new MainAdapter(options, this);
         mainAdapter.startListening();
         recyclerView.setAdapter(mainAdapter);
     }
+
+    // Implementa el método de la interfaz para manejar el clic del botón "Ver Mapa"
+    @Override
+    public void onVerMapaClick(MainModel mainModel) {
+        // Abre el nuevo fragmento (MapaGoogleFragment) aquí
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        MapaGoogleFragment mapaGoogleFragment = MapaGoogleFragment.newInstance(mainModel.getOrigen(), mainModel.getDestino(), mainModel.getSurl());
+
+        fragmentTransaction.replace(R.id.nav_hostfragment, mapaGoogleFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+/* OTRA OPCIÓN POR SI NO FUNCIONA
+    @Override
+    public void onVerMapaClick(MainModel mainModel) {
+        // Abre el nuevo fragmento (MapaGoogleFragment) aquí
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        MapaGoogleFragment mapaGoogleFragment = new MapaGoogleFragment();
+
+        // Puedes pasar datos del modelo si es necesario, por ejemplo, el nombre de la ruta
+        Bundle bundle = new Bundle();
+        bundle.putString("rutaId", mainModel.getNombre());  // Puedes cambiar a otro campo si es más apropiado
+        bundle.putString("origen", mainModel.getOrigen());
+        bundle.putString("destino", mainModel.getDestino());
+        bundle.putString("imageUrl", mainModel.getSurl());
+        mapaGoogleFragment.setArguments(bundle);
+
+        fragmentTransaction.replace(R.id.nav_hostfragment, mapaGoogleFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+*/
 }
