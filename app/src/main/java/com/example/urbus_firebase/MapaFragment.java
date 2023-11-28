@@ -145,15 +145,10 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             // Manejar el caso en que la ubicación actual sea nula
             Toast.makeText(requireContext(), "No se pudo obtener la ubicación actual", Toast.LENGTH_SHORT).show();
         }
-        LatLng sydney = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-        map.addMarker(new MarkerOptions().position(sydney).title("Mi Ubicación"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
-
-        Antut(googleMap);
     }
 
-    //PARA MOSTRAR INFORMACIÓN DE LAS COMBIS
+
+    // Método para mostrar información del BottomSheetDialog
     private void mostrarBottomSheet(String markerTitle) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("bases_combis");
 
@@ -176,14 +171,14 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                     TextView unidadesText = bottomSheetView.findViewById(R.id.txUnidades);
 
                     nombreTextView.setText(base.getNombre());
-                    clave.setText("Clave: " + baseModel.getClave());
-                    frecuenciaText.setText("Frecuencia: " + baseModel.getFrecuencia());
-                    horarioText.setText("Horario: " + baseModel.getHorario());
-                    unidadesText.setText("Unidades: " + baseModel.getUnidades());
-                    destinosText.setText("Destinos: " + baseModel.getDestinos());
+                    clave.setText("Clave: " + base.getClave());
+                    frecuenciaText.setText("Frecuencia: " + base.getFrecuencia());
+                    horarioText.setText("Horario: " + base.getHorario());
+                    unidadesText.setText("Unidades: " + base.getUnidades());
+                    destinosText.setText("Destinos: " + base.getDestinos());
 
                     // Crea el BottomSheetDialog
-                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext());
                     bottomSheetDialog.setContentView(bottomSheetView);
 
                     // Muestra el BottomSheetDialog
@@ -198,7 +193,6 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             }
         });
     }
-
 
 
     public void Antut(GoogleMap googleMap) {

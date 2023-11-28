@@ -48,8 +48,6 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
     private FusedLocationProviderClient fusedLocationProviderClient;
 
     // Variables para coordenadas de origen y destino
-    private LatLng origenLatLng;
-    private LatLng destinoLatLng;
     private Button imageBack;
     private ImageView imageViewRuta;
     private TextView textViewOrigen;
@@ -59,6 +57,7 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
         // Required empty public constructor
     }
 
+    /*
     private void mostrarRuta(LatLng origen, LatLng destino) {
         // Inicializar el contexto de la API Directions
         GeoApiContext geoApiContext = new GeoApiContext.Builder()
@@ -79,7 +78,7 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public static MapaGoogleFragment newInstance(String origen, String destino, String surl) {
         MapaGoogleFragment fragment = new MapaGoogleFragment();
@@ -148,9 +147,6 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
             String destino = bundle.getString("destino", "");
             String imageUrl = bundle.getString("imageUrl", "");
 
-            // Obtener las coordenadas de origen y destino
-            origenLatLng = obtenerLatLngDesdeDireccion(requireContext(), origen);
-            destinoLatLng = obtenerLatLngDesdeDireccion(requireContext(), destino);
 
             // Mostrar la información en tu interfaz de usuario (ImageView, TextView, etc.)
             textViewOrigen.setText(origen);
@@ -173,27 +169,10 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
         return rootView;
     }
 
-    private LatLng obtenerLatLngDesdeDireccion(Context context, String direccion) {
-        Geocoder geocoder = new Geocoder(context);
-        try {
-            List<Address> addresses = geocoder.getFromLocationName(direccion, 1);
-            if (addresses != null && !addresses.isEmpty()) {
-                double latitud = addresses.get(0).getLatitude();
-                double longitud = addresses.get(0).getLongitude();
-                return new LatLng(latitud, longitud);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         map = googleMap;
-
-        // Mostrar la ruta en el mapa
-        mostrarRuta(origenLatLng, destinoLatLng);
 
         LatLng sydney = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         map.addMarker(new MarkerOptions().position(sydney).title("Mi Ubicación"));
