@@ -10,30 +10,70 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fragment_container"
-/>
-    <!-- fragment_marcador_info.xml -->
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+/><LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FF9800"
+    android:padding="16dp">
+
+    <!-- Título de la base de combis -->
+    <TextView
+        android:text="BASE DE COMBIS"
+        android:id="@+id/txNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
 
-        <TextView
-            android:id="@+id/tituloTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Ruta 1"
-            android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/descripcionTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="asjofasdnfsdkjfsjkdfajsf"
-            android:layout_marginTop="8dp"/>
-    </LinearLayout>
+    <!-- Otras propiedades de la base de combis (clave, frecuencia, horario, unidades, destinos) -->
+    <TextView
+        android:text="clave"
+        android:id="@+id/txClave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Frecuencia"
+        android:id="@+id/txFrecuencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Horario"
+        android:id="@+id/txHorario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Unidades"
+        android:id="@+id/txUnidades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:text="Destinos"
+        android:id="@+id/txDestino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/icon_fav"/>
+</LinearLayout>
 
 
 </FrameLayout>

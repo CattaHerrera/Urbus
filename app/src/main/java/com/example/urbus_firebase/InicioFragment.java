@@ -98,7 +98,6 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
     @Override
     public void onFavoritoClick(MainModel mainModel) {
         // Obtener la referencia de la ruta actual y cambiar el estado de favorito en la base de datos
@@ -125,6 +124,7 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
         }
     }
 
+    }
 
 
-}
+

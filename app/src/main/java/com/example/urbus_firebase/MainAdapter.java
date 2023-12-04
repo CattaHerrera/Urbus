@@ -21,12 +21,13 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
     private OnVerMapaClickListener onVerMapaClickListener;
     private static OnFavoritoClickListener onFavoritoClickListener;
 
+    private InicioFragment inicioFragment;
 
     public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options, OnVerMapaClickListener onVerMapaClickListener, OnFavoritoClickListener onFavoritoClickListener) {
         super(options);
         this.onVerMapaClickListener = onVerMapaClickListener;
-        this.onFavoritoClickListener = onFavoritoClickListener;
-
+        this.onFavoritoClickListener = onFavoritoClickListener;;
+    this.inicioFragment = new InicioFragment();
     }
 
     public interface OnFavoritoClickListener {
@@ -91,6 +92,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
 
             img = itemView.findViewById(R.id.img1);
             nombre = itemView.findViewById(R.id.txtNombre);

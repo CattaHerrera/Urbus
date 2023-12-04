@@ -2,11 +2,11 @@ package com.example.urbus_firebase;
 
 public class baseModel {
     String nombre;
-    static String clave;
-    static String destinos;
-    static String frecuencia;
-    static String horario;
-    static String unidades;
+    String clave;
+     String destinos;
+     String frecuencia;
+     String horario;
+     String unidades;
 
 
     public baseModel(){
@@ -29,7 +29,7 @@ public class baseModel {
         this.nombre = nombre;
     }
 
-    public static String getClave() {
+    public  String getClave() {
         return clave;
     }
 
@@ -37,7 +37,7 @@ public class baseModel {
         this.clave = clave;
     }
 
-    public static String getDestinos() {
+    public  String getDestinos() {
         return destinos;
     }
 
@@ -45,7 +45,7 @@ public class baseModel {
         this.destinos = destinos;
     }
 
-    public static String getFrecuencia() {
+    public  String getFrecuencia() {
         return frecuencia;
     }
 
@@ -53,7 +53,7 @@ public class baseModel {
         this.frecuencia = frecuencia;
     }
 
-    public static String getHorario() {
+    public  String getHorario() {
         return horario;
     }
 
@@ -61,7 +61,7 @@ public class baseModel {
         this.horario = horario;
     }
 
-    public static String getUnidades() {
+    public  String getUnidades() {
         return unidades;
     }
 
