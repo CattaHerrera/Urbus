@@ -12,21 +12,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.myViewHolder> {
+public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.MyViewHolder> {
 
     private OnVerMapaClickListener onVerMapaClickListener;
+    private static OnFavoritoClickListener onFavoritoClickListener;
 
-    public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options, OnVerMapaClickListener onVerMapaClickListener) {
+
+    public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options, OnVerMapaClickListener onVerMapaClickListener, OnFavoritoClickListener onFavoritoClickListener) {
         super(options);
         this.onVerMapaClickListener = onVerMapaClickListener;
+        this.onFavoritoClickListener = onFavoritoClickListener;
+
+    }
+
+    public interface OnFavoritoClickListener {
+        void onFavoritoClick(MainModel mainModel);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull MainModel model) {
-
+    protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull MainModel model) {
         holder.nombre.setText(model.getNombre());
         holder.origen.setText(model.getOrigen());
         holder.destino.setText(model.getDestino());
@@ -50,21 +58,38 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
                 }
             }
         });
+
+        // Configurar el botón de favoritos y su comportamiento
+        holder.btnFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onFavoritoClickListener != null) {
+                    onFavoritoClickListener.onFavoritoClick(model);
+                }
+            }
+        });
+
+        // Cambiar el aspecto del botón según el estado de favorito
+        if (model.isFavorito()) {
+            holder.btnFav.setBackgroundResource(R.drawable.icon_favorito);  // Usar tu icono de corazón relleno
+        } else {
+            holder.btnFav.setBackgroundResource(R.drawable.icon_fav); // Usar tu icono de corazón vacío
+        }
     }
 
     @NonNull
     @Override
-    public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, parent, false);
-        return new myViewHolder(view);
+        return new MyViewHolder(view);
     }
 
-    class myViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         CircleImageView img;
         TextView nombre, origen, destino, costo, tiempo, parada, distancia;
-        Button btnVerMapa;
+        Button btnVerMapa, btnFav;
 
-        public myViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             img = itemView.findViewById(R.id.img1);
@@ -77,11 +102,23 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
             distancia = itemView.findViewById(R.id.txtDistancia);
 
             btnVerMapa = itemView.findViewById(R.id.btnVerMapa);
+            btnFav = itemView.findViewById(R.id.btnFav);
+
+            btnFav.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onFavoritoClickListener != null) {
+                        onFavoritoClickListener.onFavoritoClick(getItem(getAdapterPosition()));
+                    }
+                }
+            });
         }
     }
 
-    // Mueve la interfaz aquí
+    // Interfaz para manejar clics en el botón "Ver Mapa"
     public interface OnVerMapaClickListener {
         void onVerMapaClick(MainModel mainModel);
     }
+
+
 }

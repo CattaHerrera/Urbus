@@ -1,13 +1,15 @@
 package com.example.urbus_firebase;
 
 public class MainModel {
+    String id;
     String nombre, origen, destino, costo, tiempo, parada, distancia, surl;
-
+    Boolean favorito;
 
     MainModel(){
 
     }
-    public MainModel(String nombre, String origen, String destino, String costo, String tiempo, String parada, String distancia, String surl) {
+    public MainModel(String id, String nombre, String origen, String destino, String costo, String tiempo, String parada, String distancia, String surl, Boolean favorito) {
+       this.id = id;
         this.nombre = nombre;
         this.origen = origen;
         this.destino = destino;
@@ -16,6 +18,19 @@ public class MainModel {
         this.parada = parada;
         this.distancia = distancia;
         this.surl = surl;
+        this.favorito = favorito;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(Boolean favorito) {
+        this.favorito = favorito;
     }
 
     public String getNombre() {

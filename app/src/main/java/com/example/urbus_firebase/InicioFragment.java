@@ -1,6 +1,9 @@
 package com.example.urbus_firebase;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,15 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaClickListener {
+public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaClickListener, MainAdapter.OnFavoritoClickListener {
 
     private RecyclerView recyclerView;
     private MainAdapter mainAdapter;
@@ -25,17 +23,6 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
 
     public InicioFragment() {
         // Required empty public constructor
-    }
-
-    public static InicioFragment newInstance(String param1, String param2) {
-        InicioFragment fragment = new InicioFragment();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true); // Habilitar opciones de menú en el Fragment
     }
 
     @Override
@@ -54,8 +41,23 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
                         .build();
 
         // Inicializar el adaptador
-        mainAdapter = new MainAdapter(options, this);
+        mainAdapter = new MainAdapter(options, this, this);
         recyclerView.setAdapter(mainAdapter);
+
+        // Configurar el listener para el cambio de texto en el SearchView
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                txtSearch(newText);
+                return false;
+            }
+        });
 
         return rootView;
     }
@@ -64,23 +66,6 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
     public void onStart() {
         super.onStart();
         mainAdapter.startListening();
-
-        // Configurar el listener para el cambio de texto en el SearchView
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // Lógica para manejar la búsqueda cuando se envía el texto
-                txtSearch(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // Lógica para manejar la búsqueda mientras se va escribiendo
-                txtSearch(newText);
-                return false;
-            }
-        });
     }
 
     @Override
@@ -96,9 +81,8 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Rutas").orderByChild("destino").startAt(str).endAt(str + "\uf8ff"), MainModel.class)
                         .build();
 
-        mainAdapter = new MainAdapter(options, this);
-        mainAdapter.startListening();
-        recyclerView.setAdapter(mainAdapter);
+        mainAdapter.updateOptions(options);
+        mainAdapter.notifyDataSetChanged();
     }
 
     // Implementa el método de la interfaz para manejar el clic del botón "Ver Mapa"
@@ -114,5 +98,33 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void onFavoritoClick(MainModel mainModel) {
+        // Obtener la referencia de la ruta actual y cambiar el estado de favorito en la base de datos
+        String rutaId = mainModel.getId();
+
+        // Asegúrate de que rutaId no sea nulo antes de proceder
+        if (rutaId != null && !rutaId.isEmpty()) {
+            boolean nuevoEstado = !mainModel.isFavorito();
+
+            // Cambiar el estado de favorito en la base de datos
+            FirebaseDatabase.getInstance().getReference().child("Rutas").child(rutaId).child("favorito").setValue(nuevoEstado);
+
+            // Puedes realizar alguna lógica adicional aquí si es necesario
+
+            // Cambiar al fragmento adecuado
+            Fragment fragment = new HorarioFragment();  // Cambia a tu fragmento deseado
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.nav_hostfragment, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        } else {
+            // Manejar el caso cuando rutaId es nulo o vacío
+            // Puedes mostrar un mensaje de error, registrar, o realizar alguna acción adecuada.
+        }
+    }
+
+
 
 }
