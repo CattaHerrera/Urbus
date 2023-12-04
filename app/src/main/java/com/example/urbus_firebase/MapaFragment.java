@@ -124,6 +124,17 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             // Añadir marcadores adicionales
             agregarMarcadores();
 
+            // Configurar el listener de clics en los marcadores
+            map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    // Abrir MarcadorInfoFragment al hacer clic en un marcador
+                    abrirMarcadorInfoFragment();
+                    // Devuelve false para permitir que el evento se propague y se maneje adecuadamente
+                    return false;
+                }
+            });
+
             // Enfocar la cámara en un límite que contenga todas las posiciones de las marcas
             ajustarLimitesDeCamara();
         } else {
@@ -142,6 +153,14 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         agregarMarcador(new LatLng(19.81518611877106, -97.36268796388494), "Ruta 3 - Base 1", R.drawable.icon_ruta3);
     }
 
+    // Método para abrir MarcadorInfoFragment
+    private void abrirMarcadorInfoFragment() {
+        // Reemplazar el contenedor de fragmentos con MarcadorInfoFragment
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new MarcadorInfoFragment())
+                .addToBackStack(null)
+                .commit();
+    }
     private void agregarMarcador(LatLng latLng, String title, int iconResourceId) {
         map.addMarker(new MarkerOptions()
                 .position(latLng)
