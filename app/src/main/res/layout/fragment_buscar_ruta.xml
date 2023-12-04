@@ -1,32 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#263238"> <!-- Fondo gris oscuro azulado -->
 
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="20dp">
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        android:layout_margin="20dp">
 
-        <EditText
-            android:id="@+id/source"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:hint="Escribe la locación"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <EditText
-            android:id="@+id/destination"
-            android:hint="Escribe el destino"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encuentra tu Ruta"
+                android:textColor="#1E1E1E"
+                android:fontFamily="@font/expletus_sans"
+                android:textSize="30sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"/>
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:text="Navegar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/icono"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/icon_ruta"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/source"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:hint="Escribe el origen"
+                android:fontFamily="@font/expletus_sans"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/destination"
+                android:layout_marginTop="10dp"
+                android:hint="Escribe el destino"
+                android:fontFamily="@font/expletus_sans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Buscar Ruta"
+                android:layout_gravity="center"
+                android:backgroundTint="#2196F3"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border2"
+                android:fontFamily="@font/expletus_sans" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

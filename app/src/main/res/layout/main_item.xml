@@ -3,17 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="10dp"
-    android:elevation="4dp"
+    app:cardCornerRadius="5dp"
+    android:elevation="1dp"
+    app:cardElevation="8dp"
     app:cardUseCompatPadding="true"
-    android:layout_margin="4dp">
+    android:layout_margin="1dp">
 
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#F8E1D4"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/txtNombre"
@@ -25,13 +26,14 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:layout_marginTop="10dp"
-            android:id="@+id/imgFavorito"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="330dp"
-            android:src="@drawable/icon_fav" />
+
+        <Button
+            android:layout_marginTop="8dp"
+            android:id="@+id/btnFav"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="320dp"
+            android:background="@drawable/icon_fav"/>
 
         <View
             android:layout_width="wrap_content"
@@ -41,6 +43,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img1"
+            android:layout_marginLeft="5dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@+id/txtNombre"
@@ -112,6 +115,7 @@
 
             <ImageView
                 android:layout_width="15dp"
+                android:layout_marginTop="3dp"
                 android:layout_height="15dp"
                 android:src="@drawable/icon_reloj" />
 
@@ -130,6 +134,8 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="3dp"
+
                 android:src="@drawable/icon_parada" />
 
             <TextView
@@ -146,6 +152,8 @@
                 android:id="@+id/imageViewTiempo"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:layout_marginTop="3dp"
+
                 android:layout_marginStart="16dp"
                 android:src="@drawable/icon_distancia" />
 
@@ -164,12 +172,13 @@
             android:id="@+id/btnVerMapa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="260dp"
+            android:layout_marginLeft="270dp"
             android:layout_below="@+id/txtCosto"
             android:layout_marginTop="20dp"
             android:backgroundTint="#E53935"
             android:fontFamily="@font/expletus_sans"
             android:onClick="verMapa"
-            android:text="Ver Mapa" />
+            android:textSize="15dp"
+            android:text="VER Más" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
