@@ -12,6 +12,12 @@
         android:icon="@drawable/icon_mapa"
         android:title="Mapa"/>
 
+
+    <item
+        android:id="@+id/page_buscar"
+        android:icon="@drawable/icon_dibujarruta"
+        android:title="Buscar Ruta"/>
+
     <item
         android:id="@+id/page_horario"
         android:icon="@drawable/icon_calendario"

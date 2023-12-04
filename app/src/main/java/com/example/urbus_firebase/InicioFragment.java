@@ -114,26 +114,5 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-/* OTRA OPCIÓN POR SI NO FUNCIONA
-    @Override
-    public void onVerMapaClick(MainModel mainModel) {
-        // Abre el nuevo fragmento (MapaGoogleFragment) aquí
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        MapaGoogleFragment mapaGoogleFragment = new MapaGoogleFragment();
-
-        // Puedes pasar datos del modelo si es necesario, por ejemplo, el nombre de la ruta
-        Bundle bundle = new Bundle();
-        bundle.putString("rutaId", mainModel.getNombre());  // Puedes cambiar a otro campo si es más apropiado
-        bundle.putString("origen", mainModel.getOrigen());
-        bundle.putString("destino", mainModel.getDestino());
-        bundle.putString("imageUrl", mainModel.getSurl());
-        mapaGoogleFragment.setArguments(bundle);
-
-        fragmentTransaction.replace(R.id.nav_hostfragment, mapaGoogleFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-*/
 }

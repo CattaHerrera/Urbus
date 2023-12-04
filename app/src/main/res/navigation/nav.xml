@@ -16,6 +16,11 @@
         tools:layout="@layout/fragment_mapa"/>
 
     <fragment
+        android:id="@+id/page_buscar"
+        android:name="com.example.urbus_firebase.BuscarRutaFragment"
+        tools:layout="@layout/fragment_buscar_ruta"/>
+
+    <fragment
         android:id="@+id/page_horario"
         android:name="com.example.urbus_firebase.HorarioFragment"
         tools:layout="@layout/fragment_horario"/>

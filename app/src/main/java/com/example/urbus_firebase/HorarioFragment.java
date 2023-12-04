@@ -1,43 +1,31 @@
 package com.example.urbus_firebase;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.urbus_firebase.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class HorarioFragment extends Fragment {
 
-
-    private String mParam1;
-    private String mParam2;
-
     public HorarioFragment() {
-        // Required empty public constructor
-    }
-
-
-    public static HorarioFragment newInstance(String param1, String param2) {
-        HorarioFragment fragment = new HorarioFragment();
-
-        return fragment;
+        // Constructor vacío requerido
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_horario, container, false);
 
-        }
-    }
+        TabLayout tabLayout = rootView.findViewById(R.id.tabLayout);
+        ViewPager viewPager = rootView.findViewById(R.id.viewPager);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_horario, container, false);
+        // Conectar el TabLayout y ViewPager
+        tabLayout.setupWithViewPager(viewPager);
+
+        return rootView;
     }
 }
