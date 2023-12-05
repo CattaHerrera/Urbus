@@ -1,64 +1,183 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FF9800"
-    android:padding="16dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <!-- Título de la base de combis -->
-    <TextView
-        android:text="BASE DE COMBIS"
-        android:id="@+id/txNombre"
+    <!-- Fondo redondeado con un poco de elevación -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:radius="16dp">
 
+        <!-- Contenido del Bottom Sheet Dialog -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!-- Otras propiedades de la base de combis (clave, frecuencia, horario, unidades, destinos) -->
-    <TextView
-        android:text="clave"
-        android:id="@+id/txClave"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp"/>
+            <!-- Línea delgada en la parte superior para indicar que se puede deslizar -->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray" />
 
-    <TextView
-        android:text="Frecuencia"
-        android:id="@+id/txFrecuencia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp"/>
+            <!-- Imagen representativa de la base -->
+            <ImageView
+                android:id="@+id/ivBaseImage"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_destino" />
 
-    <TextView
-        android:text="Horario"
-        android:id="@+id/txHorario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp"/>
+            <!-- Información de la base -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-    <TextView
-        android:text="Unidades"
-        android:id="@+id/txUnidades"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="4dp"/>
+                <!-- Nombre de la base -->
+                <TextView
+                    android:id="@+id/txNombreLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
 
-    <TextView
-        android:text="Destinos"
-        android:id="@+id/txDestino"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/txNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BASE DE COMBIS"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/icon_fav"/>
+                <!-- Clave de la base -->
+                <TextView
+                    android:id="@+id/txClaveLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Clave:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/txClave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ABC123"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- Frecuencia de la base -->
+                <TextView
+                    android:id="@+id/txFrecuenciaLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Frecuencia:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/txFrecuencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cada 15 minutos"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- Horario de la base -->
+                <TextView
+                    android:id="@+id/txHorarioLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Horario:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/txHorario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6:00 am - 9:00 pm"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- Unidades de la base -->
+                <TextView
+                    android:id="@+id/txUnidadesLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unidades:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/txUnidades"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Destinos:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <!-- Destinos en cuadros -->
+                <LinearLayout
+                    android:id="@+id/llDestinos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <!-- Destino 1 -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Destino 1"
+                        android:textSize="16sp"
+                        android:background="#E57373"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginEnd="4dp"/>
+
+                    <!-- Destino 2 -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Destino 2"
+                        android:textSize="16sp"
+                        android:background="#81C784"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="4dp"/>
+
+                    <!-- Agrega más destinos según sea necesario -->
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

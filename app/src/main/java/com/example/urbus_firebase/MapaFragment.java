@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,16 +28,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MapaFragment extends Fragment implements OnMapReadyCallback {
 
@@ -72,14 +64,11 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             return;
         }
         // Obtener la última ubicación conocida
-        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    currentLocation = location;
-                    // Inicializar el mapa cuando la ubicación esté disponible
-                    initMap();
-                }
+        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(location -> {
+            if (location != null) {
+                currentLocation = location;
+                // Inicializar el mapa cuando la ubicación esté disponible
+                initMap();
             }
         });
     }
@@ -125,14 +114,11 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
             agregarMarcadores();
 
             // Configurar el listener de clics en los marcadores
-            map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                @Override
-                public boolean onMarkerClick(Marker marker) {
-                    // Abrir MarcadorInfoFragment al hacer clic en un marcador
-                    abrirMarcadorInfoFragment();
-                    // Devuelve false para permitir que el evento se propague y se maneje adecuadamente
-                    return false;
-                }
+            map.setOnMarkerClickListener(marker -> {
+                // Mostrar BottomSheetDialog al hacer clic en un marcador
+                mostrarBottomSheet();
+                // Devuelve false para permitir que el evento se propague y se maneje adecuadamente
+                return false;
             });
 
             // Enfocar la cámara en un límite que contenga todas las posiciones de las marcas
@@ -143,7 +129,6 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         }
     }
 
-
     private void agregarMarcadores() {
         // Añadir marcadores con información específica
         agregarMarcador(new LatLng(19.81895229522824, -97.36060114050689), "Ruta 2 - Base 1", R.drawable.icon_ruta2);
@@ -153,14 +138,16 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         agregarMarcador(new LatLng(19.81518611877106, -97.36268796388494), "Ruta 3 - Base 1", R.drawable.icon_ruta3);
     }
 
-    // Método para abrir MarcadorInfoFragment
-    private void abrirMarcadorInfoFragment() {
-        // Reemplazar el contenedor de fragmentos con MarcadorInfoFragment
-        requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new MarcadorInfoFragment())
-                .addToBackStack(null)
-                .commit();
+    private void mostrarBottomSheet() {
+        // Crear una vista personalizada para el contenido del BottomSheetDialog
+        View bottomSheetView = LayoutInflater.from(getActivity()).inflate(R.layout.bottom_sheet_layout, null);
+
+        // Crear y mostrar el BottomSheetDialog
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext());
+        bottomSheetDialog.setContentView(bottomSheetView);
+        bottomSheetDialog.show();
     }
+
     private void agregarMarcador(LatLng latLng, String title, int iconResourceId) {
         map.addMarker(new MarkerOptions()
                 .position(latLng)

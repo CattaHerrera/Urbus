@@ -119,8 +119,7 @@ public class InicioFragment extends Fragment implements MainAdapter.OnVerMapaCli
             transaction.addToBackStack(null);
             transaction.commit();
         } else {
-            // Manejar el caso cuando rutaId es nulo o vacío
-            // Puedes mostrar un mensaje de error, registrar, o realizar alguna acción adecuada.
+
         }
     }
 
