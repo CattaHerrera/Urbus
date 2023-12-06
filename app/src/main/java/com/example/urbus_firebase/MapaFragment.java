@@ -135,14 +135,18 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
 
     private void agregarMarcadores() {
         // Añadir marcadores con información específica
-        agregarMarcador(new LatLng(19.81895229522824, -97.36060114050689), "Ruta 2 - Base 1", R.drawable.icon_ruta2);
-        agregarMarcador(new LatLng(19.81890915931547, -97.36124794501956), "Ruta 1 - Base 1", R.drawable.icon_ruta1);
-        agregarMarcador(new LatLng(19.819078735970006, -97.35881587004341), "Ruta 1 - Base 2", R.drawable.icon_ruta1);
-        agregarMarcador(new LatLng(19.816581251545358, -97.35906154845205), "Ruta 2 - Base 2", R.drawable.icon_ruta2);
-        agregarMarcador(new LatLng(19.81518611877106, -97.36268796388494), "Ruta 3 - Base 1", R.drawable.icon_ruta3);
-        agregarMarcador(new LatLng(19.81756587870606, -97.36170450207595), "Urbanos Verdes - Base 1", R.drawable.icon_ruta3);
+        agregarMarcador(new LatLng(19.81895229522824, -97.36060114050689), "Ruta 2 - Base 1", R.drawable.icon_punterorojo);
+        agregarMarcador(new LatLng(19.81890915931547, -97.36124794501956), "Ruta 1 - Base 1", R.drawable.icon_punteroazul);
+        agregarMarcador(new LatLng(19.819078735970006, -97.35881587004341), "Ruta 1 - Base 2", R.drawable.icon_punteroazul);
+        agregarMarcador(new LatLng(19.816581251545358, -97.35906154845205), "Ruta 2 - Base 2", R.drawable.icon_punterorojo);
+        agregarMarcador(new LatLng(19.81518611877106, -97.36268796388494), "Ruta 3 - Base 1", R.drawable.icon_punteroverde);
+        agregarMarcador(new LatLng(19.81756587870606, -97.36170450207595), "Urbanos Verdes - Base 1", R.drawable.icon_punteroverde);
+
+        agregarMarcador(new LatLng(19.821181121464658, -97.3597721113316), "Parada - Calesa", R.drawable.icon_punteroparada);
     }
 
+
+    //19.821181121464658, -97.3597721113316 CALESA
     private void mostrarBottomSheet(String marcaSeleccionada) {
         // Obtener la posición de la marca en la lista
         int posicion = obtenerPosicionMarca(marcaSeleccionada);
@@ -158,7 +162,9 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();
     }
-//19.81756587870606, -97.36170450207595 coordenas prueba
+
+
+    //19.81756587870606, -97.36170450207595 coordenas prueba
     private int obtenerPosicionMarca(String marcaSeleccionada) {
         // Obtener la posición de la marca en la lista
         switch (marcaSeleccionada) {
@@ -174,6 +180,8 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                 return 4;
             case "Urbanos Verdes - Base 1":
                 return 5;
+            case "Parada - Calesa":
+                return 6;
             default:
                 return -1; // Marca no encontrada
         }
@@ -184,7 +192,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         map.addMarker(new MarkerOptions()
                 .position(latLng)
                 .title(title)
-                .icon(getBitmapDescriptor(iconResourceId, 64, 100)));
+                .icon(getBitmapDescriptor(iconResourceId, 150, 150)));
     }
 
     private void ajustarLimitesDeCamara() {
@@ -195,6 +203,8 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         builder.include(new LatLng(19.819078735970006, -97.35881587004341)); // Ruta 1
         builder.include(new LatLng(19.816581251545358, -97.35906154845205)); // Ruta 2
         builder.include(new LatLng(19.81518611877106, -97.36268796388494)); // Ruta 3
+
+
 
         // Obtener el límite
         LatLngBounds bounds = builder.build();

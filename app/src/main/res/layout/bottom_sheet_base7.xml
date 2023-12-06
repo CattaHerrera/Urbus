@@ -1,0 +1,205 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Fondo redondeado con un poco de elevación -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:radius="16dp">
+
+        <!-- Contenido del CardView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Encabezado con nombre e imagen de la parada -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Imagen representativa de la parada -->
+                <ImageView
+                    android:id="@+id/ivParadaImage"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_parada" />
+
+                <!-- Información de la parada -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <!-- Nombre de la parada -->
+                    <TextView
+                        android:id="@+id/txParadaNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PARADA - CALESA"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Información adicional de la parada (puedes agregar más detalles) -->
+                    <TextView
+                        android:id="@+id/txParadaInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ubicación: Av. Benito Juárez"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <!-- Lista de rutas que pasan por la parada -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Rutas -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!-- Icono y gráfica para la ruta 1 (azules) -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <!-- Imagen de la ruta -->
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:src="@drawable/icon_rojas" />
+
+                                <!-- Barra de gráfica simulada -->
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="10dp"
+                                    android:layout_weight="1"
+                                    android:background="#FF0000" />
+
+                                <!-- Texto informativo -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Constantes"
+                                    android:textSize="12sp"
+                                    android:layout_marginStart="8dp" />
+                            </LinearLayout>
+
+                            <!-- Icono y gráfica para la ruta 2 (verde) -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <!-- Imagen de la ruta -->
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:src="@drawable/icon_verdes" />
+
+                                <!-- Barra de gráfica simulada (ajustar los valores de layout_weight según sea necesario) -->
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="10dp"
+                                    android:layout_weight="0.2"
+                                android:background="#4EFF56" />
+
+                                <!-- Texto informativo -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Constantes"
+                                    android:textSize="12sp"
+                                    android:layout_marginStart="8dp" />
+                            </LinearLayout>
+
+                            <!-- Icono y gráfica para la ruta 3 (azul) -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <!-- Imagen de la ruta -->
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:src="@drawable/icon_azules" />
+
+                                <!-- Barra de gráfica simulada (ajustar los valores de layout_weight según sea necesario) -->
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="10dp"
+                                    android:layout_weight="0.5"
+                                android:background="#1DB9D9" />
+
+                                <!-- Texto informativo -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Constantes"
+                                    android:textSize="12sp"
+                                    android:layout_marginStart="8dp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <!-- Agrega más ImageView según sea necesario para otras rutas -->
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Otros detalles de la parada (puedes agregar más información) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <!-- Etiqueta de Otros Detalles -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OTROS DETALLES"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Agrega más detalles aquí -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Servicios cercanos: Panadería, Tienda de juguetes, Tienda de ropa, Gimnasio"
+                    android:textSize="16sp"/>
+
+                <!-- Puedes agregar más detalles según sea necesario -->
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
