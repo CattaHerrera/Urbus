@@ -1,0 +1,236 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Fondo redondeado con un poco de elevación -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:radius="16dp">
+
+        <!-- Contenido del Bottom Sheet Dialog -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Encabezado con nombre e imagen -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Imagen representativa de la base -->
+                <ImageView
+                    android:id="@+id/ivBaseImage"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_verdes" />
+
+                <!-- Información de la base -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <!-- Nombre de la base -->
+                    <TextView
+                        android:id="@+id/txNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="BASE URBANOS VERDES - MERCADO"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Clave de la base -->
+                    <TextView
+                        android:id="@+id/txClave"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CLAVE: UB - 54643"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <!-- Frecuencia de la base -->
+                    <TextView
+                        android:id="@+id/txFrecuencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="FRECUENCIA: Cada 30 minutos"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <!-- Horario de la base -->
+                    <TextView
+                        android:id="@+id/txHorario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="HORARIO: 6:30 am - 9:00 pm"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <!-- Unidades de la base -->
+                    <TextView
+                        android:id="@+id/txUnidades"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="UNIDADES: 18"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Costo de la base -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <!-- Etiqueta de Costo -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="COSTO"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Rango de costo -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desde $7 hasta $12 Aprox"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <!-- Destinos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <!-- Etiqueta de Destinos -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DESTINOS"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Lista de Destinos -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Destino 1 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="MEXCAL"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF" />
+
+                    <!-- Destino 2 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ATOLUCA CENTRO"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"/>
+                    <!-- Destino 3 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ATOLUCA SECC 3"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"/>
+
+                    <!-- Destino 4 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="XALTIPAN"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"/>
+
+                    <!-- Destino 5 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="HUEYAPAN"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"/>
+
+                    <!-- Destino 6 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="IXTICPAN"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"/>
+
+                    <!-- Destino 7 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="SAN JUAN"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"/>
+
+                    <!-- Destino 8-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CHOWIS"
+                        android:textSize="16sp"
+                        android:background="#2CA92C"
+                        android:padding="8dp"
+                        android:gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

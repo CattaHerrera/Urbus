@@ -47,39 +47,14 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
     private Location currentLocation;
     private FusedLocationProviderClient fusedLocationProviderClient;
 
-    // Variables para coordenadas de origen y destino
     private Button imageBack;
     private ImageView imageViewRuta;
     private TextView textViewOrigen;
     private TextView textViewDestino;
 
     public MapaGoogleFragment() {
-        // Required empty public constructor
+        //constructor requerido
     }
-
-    /*
-    private void mostrarRuta(LatLng origen, LatLng destino) {
-        // Inicializar el contexto de la API Directions
-        GeoApiContext geoApiContext = new GeoApiContext.Builder()
-                .apiKey("AIzaSyCaoEeaiKNbwFWd7rNTjn4mU7wTVzuPKgA") // Reemplaza con tu clave de API de Google Maps
-                .build();
-
-        // Llamada a la API Directions para obtener la ruta
-        try {
-            DirectionsResult result = DirectionsApi.newRequest(geoApiContext)
-                    .origin(new com.google.maps.model.LatLng(origen.latitude, origen.longitude))
-                    .destination(new com.google.maps.model.LatLng(destino.latitude, destino.longitude))
-                    .mode(TravelMode.DRIVING) // Puedes cambiar el modo según tus necesidades
-                    .await();
-
-            // Manejar el resultado y dibujar la ruta en el mapa
-            // Aquí deberías implementar la lógica para extraer y mostrar la información de la ruta en el mapa
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
     public static MapaGoogleFragment newInstance(String origen, String destino, String surl) {
         MapaGoogleFragment fragment = new MapaGoogleFragment();
 
@@ -148,12 +123,11 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
             String imageUrl = bundle.getString("imageUrl", "");
 
 
-            // Mostrar la información en tu interfaz de usuario (ImageView, TextView, etc.)
+            // muestra la información en mi interfaz como (ImageView, TextView, etc.)
             textViewOrigen.setText(origen);
             textViewDestino.setText(destino);
 
-            // Usa Glide o la biblioteca que prefieras para cargar la imagen desde la URL
-            // Asegúrate de tener las vistas correspondientes en tu layout fragment_mapa_google.xml
+            // Usa Glide o la biblioteca para cargar url de imagen
             Glide.with(requireContext()).load(imageUrl).into(imageViewRuta);
         }
 
@@ -174,16 +148,18 @@ public class MapaGoogleFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap googleMap) {
         map = googleMap;
 
-        LatLng sydney = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-        map.addMarker(new MarkerOptions().position(sydney).title("Mi Ubicación"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        // Coordenadas específicas (Teziutlán, Centro)
+        LatLng specificLocation = new LatLng(19.819024788942805, -97.36001065278393);
 
-        LatLng currentLatLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+        // Agregar un  marcador en las coordenadas específicas
+        map.addMarker(new MarkerOptions().position(specificLocation).title("Ciudad Origen"));
 
-        // Centrar el mapa en la ubicación actual y establecer un nivel de zoom adecuado
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f));
+        // Mover la cámara al centro de las coordenadas específicas y establecer un nivel de zoom que queramos
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(specificLocation, 15f));
     }
 
+
+    //19.819024788942805, -97.36001065278393 - TEZIUTLÁN
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

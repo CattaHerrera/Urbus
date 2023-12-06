@@ -6,9 +6,11 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,11 +28,8 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MapaFragment extends Fragment implements OnMapReadyCallback {
 
@@ -115,8 +114,13 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
 
             // Configurar el listener de clics en los marcadores
             map.setOnMarkerClickListener(marker -> {
-                // Mostrar BottomSheetDialog al hacer clic en un marcador
-                mostrarBottomSheet();
+                // Obtener el título del marcador
+                String marcaSeleccionada = marker.getTitle();
+
+                // Mostrar BottomSheetDialog según la marca seleccionada
+                mostrarBottomSheet(marcaSeleccionada);
+                Log.d("MapaFragment", "Mostrando Bottom Sheet para marca: " + marcaSeleccionada);
+
                 // Devuelve false para permitir que el evento se propague y se maneje adecuadamente
                 return false;
             });
@@ -136,17 +140,45 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         agregarMarcador(new LatLng(19.819078735970006, -97.35881587004341), "Ruta 1 - Base 2", R.drawable.icon_ruta1);
         agregarMarcador(new LatLng(19.816581251545358, -97.35906154845205), "Ruta 2 - Base 2", R.drawable.icon_ruta2);
         agregarMarcador(new LatLng(19.81518611877106, -97.36268796388494), "Ruta 3 - Base 1", R.drawable.icon_ruta3);
+        agregarMarcador(new LatLng(19.81756587870606, -97.36170450207595), "Urbanos Verdes - Base 1", R.drawable.icon_ruta3);
     }
 
-    private void mostrarBottomSheet() {
+    private void mostrarBottomSheet(String marcaSeleccionada) {
+        // Obtener la posición de la marca en la lista
+        int posicion = obtenerPosicionMarca(marcaSeleccionada);
+
+        // Determinar el layout correspondiente según la posición
+        int bottomSheetLayoutId = getResources().getIdentifier("bottom_sheet_base" + (posicion + 1), "layout", requireContext().getPackageName());
+
         // Crear una vista personalizada para el contenido del BottomSheetDialog
-        View bottomSheetView = LayoutInflater.from(getActivity()).inflate(R.layout.bottom_sheet_layout, null);
+        View bottomSheetView = LayoutInflater.from(getActivity()).inflate(bottomSheetLayoutId, null);
 
         // Crear y mostrar el BottomSheetDialog
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireContext());
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();
     }
+//19.81756587870606, -97.36170450207595 coordenas prueba
+    private int obtenerPosicionMarca(String marcaSeleccionada) {
+        // Obtener la posición de la marca en la lista
+        switch (marcaSeleccionada) {
+            case "Ruta 1 - Base 1":
+                return 0;
+            case "Ruta 2 - Base 1":
+                return 1;
+            case "Ruta 1 - Base 2":
+                return 2;
+            case "Ruta 2 - Base 2":
+                return 3;
+            case "Ruta 3 - Base 1":
+                return 4;
+            case "Urbanos Verdes - Base 1":
+                return 5;
+            default:
+                return -1; // Marca no encontrada
+        }
+    }
+
 
     private void agregarMarcador(LatLng latLng, String title, int iconResourceId) {
         map.addMarker(new MarkerOptions()
