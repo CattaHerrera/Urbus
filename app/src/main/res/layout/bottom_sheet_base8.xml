@@ -48,7 +48,7 @@
                         android:id="@+id/txParadaNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PARADA - CALESA"
+                        android:text="PARADA - HOSPITAL GUADALUPANO"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp" />
@@ -58,7 +58,7 @@
                         android:id="@+id/txParadaInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ubicación: Av. Benito Juárez"
+                        android:text="Ubicación: Calle, Valsequillo"
                         android:textSize="14sp"
                         android:layout_marginBottom="4dp" />
 
@@ -123,7 +123,7 @@
 
                                 <!-- Barra de gráfica simulada (ajustar el ancho según sea necesario) -->
                                 <View
-                                    android:layout_width="80dp"
+                                    android:layout_width="100dp"
                                 android:layout_height="10dp"
                                 android:background="#4EFF56" />
 
@@ -153,7 +153,7 @@
 
                                 <!-- Barra de gráfica simulada (ajustar el ancho según sea necesario) -->
                                 <View
-                                    android:layout_width="25dp"
+                                    android:layout_width="10dp"
                                 android:layout_height="10dp"
                                 android:background="#1DB9D9" />
 
@@ -195,26 +195,26 @@
                 <GridLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:columnCount="2"
+                    android:columnCount="3"
                 android:rowCount="2"
                 android:orientation="horizontal">
 
-                <!-- Servicio: Panadería -->
+                <!-- Servicio: OXXO -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Panadería"
+                    android:text="OXXO"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
                 android:layout_margin="8dp"
                 android:padding="8dp" />
 
-                <!-- Servicio: Tienda de juguetes -->
+                <!-- Servicio: Farmacia -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tienda de juguetes"
+                    android:text="Farmacia"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
@@ -222,11 +222,11 @@
                     android:padding="8dp"
      />
 
-                <!-- Servicio: Tienda de ropa -->
+                <!-- Servicio: Hospital -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tienda de ropa"
+                    android:text="Hospital"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
@@ -234,16 +234,38 @@
                     android:padding="8dp"
       />
 
-                <!-- Servicio: Gimnasio -->
+                <!-- Servicio: Taqueria -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gimnasio"
+                    android:text="Taqueria"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
                     android:layout_margin="8dp"
                     android:padding="8dp" />
+
+                    <!-- Servicio: Lavanderia -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lavanderia"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:background="@drawable/border"
+                        android:layout_margin="8dp"
+                        android:padding="8dp" />
+
+                    <!-- Servicio: Carniceria -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carniceria"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:background="@drawable/border"
+                        android:layout_margin="8dp"
+                        android:padding="8dp" />
             </GridLayout>
 
             <!-- Puedes agregar más detalles según sea necesario -->

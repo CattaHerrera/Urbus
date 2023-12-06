@@ -48,7 +48,7 @@
                         android:id="@+id/txParadaNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PARADA - CALESA"
+                        android:text="PARADA - CASA SOCIAL"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp" />
@@ -58,7 +58,7 @@
                         android:id="@+id/txParadaInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ubicación: Av. Benito Juárez"
+                        android:text="Ubicación: Av. Cuauhtémoc"
                         android:textSize="14sp"
                         android:layout_marginBottom="4dp" />
 
@@ -92,7 +92,7 @@
 
                                 <!-- Barra de gráfica simulada -->
                                 <View
-                                    android:layout_width="130dp"
+                                    android:layout_width="1dp"
                                 android:layout_height="10dp"
                                 android:background="#FF0000" />
 
@@ -100,7 +100,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Constante"
+                                    android:text="Nula"
                                     android:textSize="12sp"
                                     android:layout_marginStart="8dp" />
                             </LinearLayout>
@@ -123,7 +123,7 @@
 
                                 <!-- Barra de gráfica simulada (ajustar el ancho según sea necesario) -->
                                 <View
-                                    android:layout_width="80dp"
+                                    android:layout_width="100dp"
                                 android:layout_height="10dp"
                                 android:background="#4EFF56" />
 
@@ -131,7 +131,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Continuo"
+                                    android:text="Frecuente"
                                     android:textSize="12sp"
                                     android:layout_marginStart="8dp" />
                             </LinearLayout>
@@ -153,7 +153,7 @@
 
                                 <!-- Barra de gráfica simulada (ajustar el ancho según sea necesario) -->
                                 <View
-                                    android:layout_width="25dp"
+                                    android:layout_width="100dp"
                                 android:layout_height="10dp"
                                 android:background="#1DB9D9" />
 
@@ -161,7 +161,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Escaso"
+                                    android:text="Frecuente"
                                     android:textSize="12sp"
                                     android:layout_marginStart="8dp" />
                             </LinearLayout>
@@ -195,7 +195,7 @@
                 <GridLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:columnCount="2"
+                    android:columnCount="3"
                 android:rowCount="2"
                 android:orientation="horizontal">
 
@@ -203,7 +203,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Panadería"
+                    android:text="Comedor"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
@@ -214,7 +214,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tienda de juguetes"
+                    android:text="Casa de empeños"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
@@ -226,24 +226,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tienda de ropa"
+                    android:text="Clínica"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
                     android:layout_margin="8dp"
-                    android:padding="8dp"
-      />
+                    android:padding="8dp"/>
 
-                <!-- Servicio: Gimnasio -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gimnasio"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:background="@drawable/border"
-                    android:layout_margin="8dp"
-                    android:padding="8dp" />
+
             </GridLayout>
 
             <!-- Puedes agregar más detalles según sea necesario -->

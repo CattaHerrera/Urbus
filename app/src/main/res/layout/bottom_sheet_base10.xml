@@ -48,7 +48,7 @@
                         android:id="@+id/txParadaNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PARADA - CALESA"
+                        android:text="PARADA - AURRERA"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp" />
@@ -123,7 +123,7 @@
 
                                 <!-- Barra de gráfica simulada (ajustar el ancho según sea necesario) -->
                                 <View
-                                    android:layout_width="80dp"
+                                    android:layout_width="130dp"
                                 android:layout_height="10dp"
                                 android:background="#4EFF56" />
 
@@ -131,7 +131,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Continuo"
+                                    android:text="Constante"
                                     android:textSize="12sp"
                                     android:layout_marginStart="8dp" />
                             </LinearLayout>
@@ -153,7 +153,7 @@
 
                                 <!-- Barra de gráfica simulada (ajustar el ancho según sea necesario) -->
                                 <View
-                                    android:layout_width="25dp"
+                                    android:layout_width="10dp"
                                 android:layout_height="10dp"
                                 android:background="#1DB9D9" />
 
@@ -203,7 +203,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Panadería"
+                    android:text="Taqueria"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
@@ -214,7 +214,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tienda de juguetes"
+                    android:text="Super Mercado"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
@@ -226,7 +226,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tienda de ropa"
+                    android:text="Tienda para casa"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"
@@ -238,7 +238,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gimnasio"
+                    android:text="OTROS XD"
                     android:textSize="16sp"
                     android:textColor="#000000"
                     android:background="@drawable/border"

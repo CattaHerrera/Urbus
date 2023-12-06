@@ -143,10 +143,34 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         agregarMarcador(new LatLng(19.81756587870606, -97.36170450207595), "Urbanos Verdes - Base 1", R.drawable.icon_punteroverde);
 
         agregarMarcador(new LatLng(19.821181121464658, -97.3597721113316), "Parada - Calesa", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.822802185955872, -97.36028804678749), "Parada - Hospital", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.825885909519357, -97.35996947501688 ), "Parada - Gasolinera", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.827081023646965, -97.359791167038), "Parada - Aurrera", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.818863305815317, -97.3586606540281 ), "Parada - Club de leones", R.drawable.icon_punteroparada);
+
+        agregarMarcador(new LatLng(19.81478639348607, -97.36156602143572), "Parada - Casa social", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.81360031423038, -97.36159070101465), "Parada - Internado", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.810829509113766, -97.3614465138631), "Parada - Farmacia", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.814155258660385, -97.35954920436856), "Parada - UPAV", R.drawable.icon_punteroparada);
+        agregarMarcador(new LatLng(19.811801615898677, -97.35960114634103), "Parada - Puente", R.drawable.icon_punteroparada);
+
+
+
     }
 
 
     //19.821181121464658, -97.3597721113316 CALESA
+    //19.822802185955872, -97.36028804678749 HOSPITAL
+    //19.825885909519357, -97.35996947501688 - Gasolinera
+    //19.827081023646965, -97.359791167038 - aurrera
+    //19.818863305815317, -97.3586606540281 - club de leones
+
+    //19.81478639348607, -97.36156602143572 - Casa social (azules)
+    //19.81360031423038, -97.36159070101465 - Internado (azules)
+    //19.810829509113766, -97.3614465138631 - farmacia (azules)
+
+    //19.814155258660385, -97.35954920436856 - UPAV (URBANOS VERDES
+    // //19.811801615898677, -97.35960114634103 - PUENTE - (URBANOS VERDES)
     private void mostrarBottomSheet(String marcaSeleccionada) {
         // Obtener la posición de la marca en la lista
         int posicion = obtenerPosicionMarca(marcaSeleccionada);
@@ -182,6 +206,24 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                 return 5;
             case "Parada - Calesa":
                 return 6;
+            case "Parada - Hospital":
+                return 7;
+            case "Parada - Gasolinera":
+                return 8;
+            case "Parada - Aurrera":
+                return 9;
+            case "Parada - Club de leones":
+                return 10;
+            case "Parada - Casa social":
+                return 11;
+            case "Parada - Internado":
+                return 12;
+            case "Parada - Farmacia":
+                return 13;
+            case "Parada - UPAV":
+                return 14;
+            case "Parada - Puente":
+                return 15;
             default:
                 return -1; // Marca no encontrada
         }
@@ -195,6 +237,18 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
                 .icon(getBitmapDescriptor(iconResourceId, 150, 150)));
     }
 
+    //19.821181121464658, -97.3597721113316 CALESA
+    //19.822802185955872, -97.36028804678749 HOSPITAL
+    //19.825885909519357, -97.35996947501688 - Gasolinera
+    //19.827081023646965, -97.359791167038 - aurrera
+    //19.818863305815317, -97.3586606540281 - club de leones
+
+    //19.81478639348607, -97.36156602143572 - Casa social (azules)
+    //19.81360031423038, -97.36159070101465 - Internado (azules)
+    //19.810829509113766, -97.3614465138631 - farmacia (azules)
+
+    //19.814155258660385, -97.35954920436856 - UPAV (URBANOS VERDES
+    // //19.811801615898677, -97.35960114634103 - PUENTE - (URBANOS VERDES)
     private void ajustarLimitesDeCamara() {
         // Crear un límite que contenga todas las posiciones de las marcas
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -203,7 +257,11 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         builder.include(new LatLng(19.819078735970006, -97.35881587004341)); // Ruta 1
         builder.include(new LatLng(19.816581251545358, -97.35906154845205)); // Ruta 2
         builder.include(new LatLng(19.81518611877106, -97.36268796388494)); // Ruta 3
-
+        builder.include(new LatLng(19.821181121464658, -97.3597721113316));
+        builder.include(new LatLng(19.822802185955872, -97.36028804678749));
+        builder.include(new LatLng(19.825885909519357, -97.35996947501688));
+        builder.include(new LatLng(19.827081023646965, -97.359791167038));
+        builder.include(new LatLng(19.818863305815317, -97.3586606540281));
 
 
         // Obtener el límite
